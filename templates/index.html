@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Prediction </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='water.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            background-color: #035096;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            height: 60px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 500px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            width: 90%;
+            padding: 2px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #035096;
+            width: 30%;
+            color: white;
+            height: 50px;
+        }
+        .button:hover {
+            background-color: #007d7d;
+        }
+        main {
+            display: flex;
+            max-height: 100vh;
+            padding: 20px;
+            justify-content: center;
+        }
+        footer {
+            background-color: #035096;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>AquaAI</h1></header>
+    <main>
+        <form id="predict-form" method="post" action="{{ url_for('predict') }}">
+            <p>CHECK YOUR WATER 💧</p>
+            <label for="ph">pH:</label><br>
+            <input type="number" id="ph" name="ph" step="any" placeholder="Desirable Range 6-8(accepts only Integer or float)"><br>
+            <label for="hardness">Hardness:</label><br>
+            <input type="number" id="hardness" name="hardness" step="any" required placeholder="Desirable Range 0-200(accepts only Integer or float)"><br>
+            <label for="solids">Solids:</label><br>
+            <input type="number" id="solids" name="solids" step="any" required placeholder="Desirable(accepts only Integer or float)"><br>
+            <label for="chloramines">Chloramines:</label><br>
+            <input type="number" id="chloramines" name="chloramines" step="any" required placeholder="Up to 4 mg/L(accepts only Integer or float)"><br>
+            <label for="sulfate">Sulfate:</label><br>
+            <input type="number" id="sulfate" name="sulfate" step="any" required placeholder="Desirable Range 250-400(accepts only Integer or float)"><br>
+            <label for="conductivity">Conductivity:</label><br>
+            <input type="number" id="conductivity" name="conductivity" step="any" required placeholder="Max limit 400(accepts only Integer or float)"><br>
+            <label for="organic_carbon">Organic Carbon:</label><br>
+            <input type="number" id="organic_carbon" name="organic_carbon" step="any" required placeholder="Desirable limit 2-4 mg/L(accepts only Integer or float)"><br>
+            <label for="trihalomethanes">Trihalomethanes:</label><br>
+            <input type="number" id="trihalomethanes" name="trihalomethanes" step="any" required placeholder="Desirable Range up to 80ppm(accepts only Integer or float)"><br>
+            <label for="turbidity">Turbidity:</label><br>
+            <input type="number" id="turbidity" name="turbidity" step="any" required placeholder="Desirable Range lower than 5(accepts only Integer or float)"><br><br>
+            <input type="submit" value="Predict" class="button">
+        </form>
+    </main>
+    <footer>
+        <p>@AquaAI</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='water.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        header {
+            background-color: #035096;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            height: 60px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 120px); /* Adjust height based on header and footer */
+            flex-direction: column; /* Align items in a column */
+        }
+        .result-box {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px; /* Add space between result box and button */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        .button {
+            background-color: #035096;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+        }
+        .button:hover {
+            background-color: #007d7d;
+        }
+        footer {
+            background-color: #035096;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>AquaAI</h1></header>
+    <div class="result-container">
+        <div class="result-box">
+            <h2>Prediction Result</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        <div class="button-container">
+            <a href="/" class="button">Go Home</a>
+        </div>
+    </div>
+    <footer>
+        <p>@AquaAI</p>
+    </footer>
+</body>
+</html>
