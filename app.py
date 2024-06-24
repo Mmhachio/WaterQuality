@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
-app = Flask(__name__, template_folder="C:/minor project/templates", static_folder="C:/minor project/static")
+app = Flask(__name__)
 
 # Load the trained model
 model = joblib.load("model.pkl")
