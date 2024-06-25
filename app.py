@@ -31,8 +31,9 @@ def predict():
     # Map prediction to human-readable output
     prediction_text = "Water is Safe" if prediction == 1 else "Water is Unsafe"
 
-    # Render the prediction result template
+    # Render the result template with the prediction
     return render_template("result.html", prediction=prediction_text)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
